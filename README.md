@@ -32,6 +32,12 @@ go mod tidy
 go build
 ```
 
+
+Install Python dependencies (required for running experiment scripts):
+```bash
+pip install -r requirements.txt
+```
+
 ## 🏃 Running Experiments
 
 ### runner.py
