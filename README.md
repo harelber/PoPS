@@ -10,6 +10,18 @@ This repository implements the mitigation of cache poisoning attacks, using TC F
 | `main.go` | Core logic: reads packets, filters, batches, and enforces all rules |
 | `cms_rule.go` | Implements Count-Min Sketch logic for statistical attacks and fragmentation attack detection |
 | `bailiwick_rule.go` | Implements deteciton of out-of-bailiwick attacks |
+| `runner.py` | Runs PoPS with a pcap file, to detect malicious activity |
+| `analyzer.py` | Analyzes the results of `runner.py` |
+| `generators` | Folder of sample scripts to generate pcaps |
+| `attack_pcaps` | Folder of generated pcaps, from known attacks |
+
+📦 Dataset Access
+Due to GitHub’s file size limitations, the benign DNS traffic dataset used in this study is too large to host here.
+You can download it directly from Mendeley Data:
+
+➡ https://data.mendeley.com/datasets/c4n7fckkz3/3
+
+Place the .pcap files as a folder in the project directory and reference them using the -base flag when running `runner.py`.
 
 ## ⚙️ Installation
 
