@@ -30,10 +30,11 @@ git clone https://github.com/harelber/PoPS.git
 cd PoPS
 go mod tidy
 go build
+```
 
 ## 📚 Citation
 If you use this tool or reference it in academic work, please cite the following paper:
-'''
+```
 @article{afek2025pops,
   title     = {POPS: From History to Mitigation of DNS Cache Poisoning Attacks},
   author    = {Afek, Yehuda and Berger, Harel and Bremler-Barr, Anat},
@@ -41,4 +42,4 @@ If you use this tool or reference it in academic work, please cite the following
   year      = {2025},
   url       = {https://arxiv.org/abs/2501.13540}
 }
-'''
+```
