@@ -42,7 +42,7 @@ pip install -r requirements.txt
 
 ### runner.py
 
-This script automates running PoPS on multiple `.pcap` files with different Count-Min Sketch (CMS) parameters.
+This script automates running PoPS on multiple `.pcap` files with different Count-Min Sketch (CMS) parameters (`w` and `d`), processes each `.pcap` file, and saves the results in the specified output directory.
 
 **Usage:**
 ```bash
@@ -54,7 +54,6 @@ python runner.py --base <pcap_folder> --output <output_folder> --ip <ip_address>
 - `--output` (required): Directory where output and error logs will be saved.
 - `--ip` (required): IP address of the target resolver.
 
-The script iterates over preset CMS parameters (`w` and `d` values), processes each `.pcap` file, and saves the results in the specified output directory.
 
 ---
 
@@ -72,7 +71,22 @@ python analyzer.py --mode <mal|ben> --folder <results_folder> --noise <noise_val
 - `--folder` (required): Path to the folder containing result `.txt` files (output from `runner.py`).
 - `--noise` (required): The amount of added noise (integer, e.g., 0, 100, 200, 500).
 
-The script summarizes detection results, reporting statistics such as false positives and detection success rates.
+#### Understanding the Analysis Output
+
+- **Malicious Mode (`--mode mal`):**
+  - Use this mode when analyzing results from attack pcaps (i.e., pcaps where a DNS poisoning attack was attempted).
+  - The output table includes:
+    - **Success**: The attacker's success rate, calculated as the fraction of attack packets that were *not* detected and blocked. Lower values indicate better defense.
+    - **FP**: The false positive rate, representing the fraction of benign packets incorrectly flagged as malicious.
+
+- **Benign Mode (`--mode ben`):**
+  - Use this mode for completely benign traffic (no attacks present).
+  - The output table includes:
+    - **Total_Benign**: The total number of packets in the benign pcap.
+    - **Malicious_Found**: The number of benign packets incorrectly flagged as malicious.
+    - **FP**: The false positive rate, calculated as the ratio of `Malicious_Found` to `Total_Benign`.
+
+These metrics help you evaluate both the effectiveness of PoPS in blocking attacks and its accuracy in avoiding false positives on clean traffic.
 
 ---
 
