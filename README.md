@@ -1,7 +1,7 @@
 # PoPS
 This repository is the implementation of "POPS: From History to Mitigation of DNS Cache Poisoning Attacks", to be presented in Usenix Security 25'.
 
-This repository implements the mitigation of cache poisoning attacks, using TC Flag.
+POPS (POisoning Prevention System) is a lightweight, modular DNS cache poisoning defense designed for integration into Intrusion Prevention Systems (IPS). It detects statistical DNS poisoning attacks using three simple rules and mitigates them via the TC flag. 
 
 ## 📁 File Structure
 
