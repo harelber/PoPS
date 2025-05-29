@@ -16,4 +16,4 @@ This folder contains resources and scripts for generating PCAP files used in DNS
   Script for generating PCAP files for out-of-bailiwick attacks.
 
 - **Other PCAP files**:  
-  These files correspond to specific CVEs and are used for dedicated vulnerability testing.
+  These files correspond to specific CVEs and are used for testing PoPS vs known CVEs.
