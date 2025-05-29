@@ -22,10 +22,15 @@ for w_val in w_vals:
             for file in files:
                 if file.endswith('.pcap'):
                     pcap_path = os.path.join(subdir, file)
-                    # Include d and w in the output filenames to avoid overwriting
-                    base_filename = f"{os.path.splitext(file)[0]}_d{d}_w{w_val}"
-                    output_filename = os.path.join(args.output, f"{base_filename}.txt")
-                    error_filename = os.path.join(args.output, f"{base_filename}_err.txt")
+                    # Create a subdirectory for each pcap file (without extension)
+                    pcap_dir_name = os.path.splitext(file)[0]
+                    pcap_output_dir = os.path.join(args.output, pcap_dir_name)
+                    os.makedirs(pcap_output_dir, exist_ok=True)
+
+                    # Output filenames inside the pcap-specific directory
+                    base_filename = f"{pcap_dir_name}_d{d}_w{w_val}"
+                    output_filename = os.path.join(pcap_output_dir, f"{base_filename}.txt")
+                    error_filename = os.path.join(pcap_output_dir, f"{base_filename}_err.txt")
                     command = f"go run . -r {pcap_path} -d {args.ip} -h {d} -c {w_val}"
 
                     # Run the Go command and save output/error

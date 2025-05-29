@@ -14,7 +14,9 @@ parser.add_argument("--resolver-mac", default=None, help="MAC address of the DNS
 parser.add_argument("--authoritative-ip", default="192.168.1.2", help="IP address of the authoritative DNS server (response sender)")
 parser.add_argument("--authoritative-mac", default=None, help="MAC address of the authoritative server (random if not set)")
 parser.add_argument("--domain", default="example.com", help="Domain name to query (default: example.com)")
-parser.add_argument("--output", default="out_of_bailiwick.pcap", help="Output PCAP file name")
+parser.add_argument("--output", default="../attack_pcaps/out_of_bailiwick.pcap", help="Output PCAP file name")
+parser.add_argument("--oob", default="ns.abc.com", help="Out of bailiwick domain")
+
 args = parser.parse_args()
 
 resolver_mac = args.resolver_mac or random_mac()
@@ -56,8 +58,8 @@ dns_response = DNS(
     nscount=1,
     arcount=1,
     an=DNSRR(rrname=domain, rdata="198.51.100.1", ttl=300),
-    ns=DNSRR(rrname=domain, type="NS", rdata="ns"+args.domain, ttl=300),
-    ar=DNSRR(rrname="ns"+args.domain, type="A", rdata="6.6.6.6", ttl=300)
+    ns=DNSRR(rrname=domain, type="NS", rdata=args.oob, ttl=300),
+    ar=DNSRR(rrname=args.oob, type="A", rdata="6.6.6.6", ttl=300)
 )
 response_packet = eth_response / ip_response / udp_response / dns_response
 

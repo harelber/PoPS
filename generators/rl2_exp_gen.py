@@ -3,8 +3,8 @@ from scapy.all import *
 
 # Argument parsing
 parser = argparse.ArgumentParser(description="Fragmented DNS response generator")
-parser.add_argument("--dst", default="192.168.1.100", help="Destination IP (resolver IP)")
-parser.add_argument("--pcap", default="generators/frag.pcap", help="Output PCAP file path")
+parser.add_argument("--dst", default="192.168.1.1", help="Destination IP (resolver IP)")
+parser.add_argument("--pcap", default="../attack_pcaps/frag.pcap", help="Output PCAP file path")
 parser.add_argument("--domain", default="example.com", help="Domain name for the DNS response")
 parser.add_argument("--rdata", default="93.184.216.34", help="IP address for the DNS answer (A record)")
 args = parser.parse_args()
