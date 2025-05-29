@@ -57,10 +57,9 @@ Generates a PCAP simulating an out-of-bailiwick DNS attack.
 - `--oob`: Out-of-bailiwick domain (default: ns.abc.com)
 
 ---
+## CVE-2008-1146_gen.py & CVE-2020-25684_gen.py
 
-## CVE-2008-1146_gen.py — CVE Attack Generators
-
-Generate PCAPs for specific DNS cache poisoning CVE, which includes improper port randomization of using only 10 bits of randomaization.  
+They generate PCAPs for specific DNS cache poisoning CVEs, with interleaved noise.  
 You can control all relevant parameters via command-line arguments.
 
 **Arguments:**
@@ -72,14 +71,15 @@ You can control all relevant parameters via command-line arguments.
 - `--client-mac`: MAC address of the client (random if not set)
 - `--target-domain`: Target domain for the attack (default: example.com)
 - `--fake-ip`: Fake IP address to use in spoofed responses (default: 6.6.6.6)
-- `--num-queries`: Number of DNS queries to send (default: 10)
-- `--s-per-query`: Number of spoofed responses per query (default: 10)
+- `--num-queries`: Number of DNS queries to send (default: 10 for 2008, 1 for 2020)
+- `--s-per-query`: Number of spoofed responses per query (default: 10 for 2008, 65535 for 2020)
 - `--noise`: Number of noise packets to add per query (default: 1000)
 - `--out`: Output directory for the pcap file (default: ../attack_pcaps)
 
 **Example usage:**
 ```bash
 python CVE-2008-1146_gen.py --num-queries 5 --noise 500 --target-domain victim.com --out ./attack_pcaps
+python CVE-2020-25684_gen.py --num-queries 2 --s-per-query 1000 --noise 200 --target-domain test.com --out ./attack_pcaps
 ```
 
 ---
