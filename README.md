@@ -93,11 +93,11 @@ These metrics help you evaluate both the effectiveness of PoPS in blocking attac
 ## 📚 Citation
 If you use this tool or reference it in academic work, please cite the following paper:
 ```
-@article{afek2025pops,
+@inproceedings{afek2025pops,
   title     = {POPS: From History to Mitigation of DNS Cache Poisoning Attacks},
   author    = {Afek, Yehuda and Berger, Harel and Bremler-Barr, Anat},
-  journal   = {arXiv preprint arXiv:2501.13540},
+  booktitle = {Proceedings of the 34th USENIX Security Symposium},
   year      = {2025},
-  url       = {https://arxiv.org/abs/2501.13540}
+  url       = {https://www.usenix.org/conference/usenixsecurity25}
 }
 ```
