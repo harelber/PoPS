@@ -90,7 +90,7 @@ These metrics help you evaluate both the effectiveness of PoPS in blocking attac
 
 ---
 
-## 📚 Citation
+<!-- ## 📚 Citation
 If you use this tool or reference it in academic work, please cite the following paper:
 ```
 @inproceedings{afek2025pops,
@@ -100,4 +100,4 @@ If you use this tool or reference it in academic work, please cite the following
   year      = {2025},
   url       = {https://www.usenix.org/conference/usenixsecurity25}
 }
-```
+``` -->
